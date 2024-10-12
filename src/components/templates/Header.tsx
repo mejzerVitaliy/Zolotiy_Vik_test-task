@@ -1,18 +1,11 @@
+import H1 from "../atoms/H1";
 
 const Header = () => {
     return (
-        <header className="bg-light py-3">
-            <div className=" container">
-                <div className=" d-flex justify-content-between align-items-center">
-                        
-                <h1 className=" h1 ">Zolotiy Vik test-task</h1>
-                <nav>
-                    <ul className="nav">
-                        <li className="nav-item">
-                            <a href="/" className="nav-link text-dark  ">GitHub repo</a>
-                        </li>
-                    </ul>
-                </nav>
+        <header className="bg-light py-2">
+            <div className="container">
+                <div className="d-flex justify-content-center align-items-center">        
+                    <H1><a title="GitHub repo" href="https://github.com/mejzerVitaliy/Zolotiy_Vik_test-task" className="nav-link text-dark">Zolotiy Vik test-task</a></H1>
                 </div>
             </div>
         </header>

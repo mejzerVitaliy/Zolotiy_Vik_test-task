@@ -8,9 +8,9 @@ function App() {
     const isLoader = useSelector((state: RootState) => state.loader.isLoader)
 
     return !isLoader ? (
-        <main>
+        <main className="w-100 h-100 ">
             <Header />
-            <section className=" py-3 d-grid place-items-center">
+            <section className=" w-100 d-flex justify-content-center align-items-center">
                 <MainTable/>
             </section>
         </main>

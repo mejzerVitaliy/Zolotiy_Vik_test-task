@@ -1,8 +1,6 @@
-import { ReactNode } from "react";
-
-const Th:React.FC<{ children: string | ReactNode; }> = ({children}) => {
+const Th:React.FC<{ children: string }> = ({children}) => {
     return (
-        <th className="text-[16px] font-extrabold">{children}</th>
+        <th className="text-[10px] sm:text-[14px] lg:text-[18px] font-extrabold p-1">{children}</th>
     )
 }
 

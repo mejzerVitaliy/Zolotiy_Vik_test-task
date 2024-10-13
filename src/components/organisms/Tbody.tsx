@@ -1,31 +1,27 @@
-import React from 'react'
-import { useGetUsersQuery } from '../../api/getUsers'
+import React, { useEffect, useState } from 'react'
 import { User } from '../../types/UserInterface'
-import Th from '../atoms/Th'
+import Td from '../atoms/Td'
 
-const Tbody = () => {
-    const { data: users, isLoading, error } = useGetUsersQuery()
+const Tbody: React.FC<{users: User[]}> = ({users}) => {
+    const [usersList, setUsersList] = useState<User[]>()
     
-    if (error) {
-        console.error('error of getting api')
-    } else if (isLoading) {
-        return <div></div>
-    } else return (
+    useEffect(() => {
+        setUsersList(users)       
+    }, [users])
+    
+    return (
         <tbody>
-            {users?.map((user: User) => (
-                <tr>
-                    <Th>{ user.id }</Th>
-                    <Th>{ user.name }</Th>
-                    <Th>{ user.email }</Th>
-                    <Th>{ user.phone }</Th>
-                    <Th>{ user.address.city }</Th>
+            {usersList?.map((user: User) => (
+                <tr key={ user.id } className=' hovered cursor-pointer transition-colors ' onClick={() => console.log(user)}>
+                    <Td>{ user.id }</Td>
+                    <Td>{ user.name }</Td>
+                    <Td>{ user.email.length > 17 ? user.email.slice(0, 18).concat('...') : user.email }</Td>
+                    <Td>{ user.phone.length > 14 ? user.phone.slice(0, 15).concat('...') : user.phone }</Td>
+                    <Td>{ user.address.city.length > 11 ? user.address.city.slice(0, 12).concat('...') : user.address.city }</Td>
                 </tr>
             ))}
         </tbody>
-    )
-    
-
-    
+    )  
 }
 
 export default Tbody

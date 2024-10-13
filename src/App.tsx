@@ -10,7 +10,7 @@ function App() {
     return !isLoader ? (
         <main className="w-100 h-100 ">
             <Header />
-            <section className=" w-100 d-flex justify-content-center align-items-center">
+            <section className=" w-100 mt-3 d-flex justify-content-center align-items-center">
                 <MainTable/>
             </section>
         </main>
